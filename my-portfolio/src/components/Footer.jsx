@@ -6,7 +6,7 @@ const Footer = () => {
       <p>© 2026 Sarim Ali. All rights reserved.</p>
       <div className="flex justify-center gap-4">
         <a
-          href="https://github.com/sarimg"
+          href="https://github.com/dashboard"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-blue-500 transition"
@@ -14,7 +14,7 @@ const Footer = () => {
           GitHub
         </a>
         <a
-          href="https://linkedin.com/in/sarimg"
+          href="https://www.linkedin.com/in/sarim-ali-691530397/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-blue-500 transition"

@@ -38,14 +38,14 @@ const Contact = () => {
     {
       icon: Github,
       label: "GitHub",
-      value: "github.com/rizwan441",
-      href: "https://github.com/rizwan441",
+      value: "github.com/sarimali95180-tech",
+      href: "https://github.com/dashboard",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "linkedin.com/in/rizwan-zafar",
-      href: "https://linkedin.com/in/rizwan-zafar",
+      value: "linkedin.com/in/sarim-ali",
+      href: "https://www.linkedin.com/in/sarim-ali-691530397/",
     },
   ];
 
