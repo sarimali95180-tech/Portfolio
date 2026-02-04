@@ -10,84 +10,156 @@ const skills = [
 ];
 
 const About = () => {
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+            },
+        },
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6 },
+        },
+    };
+
     return (
         <section
             id="about"
-            className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 py-20 bg-gray-100 dark:bg-gray-900"
+            className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 py-20 bg-gray-100 dark:bg-gray-900 relative overflow-hidden"
         >
+            {/* Animated background decorations */}
+            <motion.div
+                animate={{
+                    rotate: [0, 360],
+                    y: [0, 50, 0],
+                }}
+                transition={{
+                    rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+                    y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                }}
+                className="absolute top-10 left-10 w-80 h-80 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+            />
+
             <motion.div
                 initial={{ x: -50, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="md:w-1/2 mb-10 md:mb-0"
+                className="md:w-1/2 mb-10 md:mb-0 relative z-10"
             >
-                {/* <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">About Me</h2>
-                <p className="text-indigo-600 font-semibold mb-3">Frontend Developer • UI Enthusiast • Motion Lover</p> */}
+                <motion.h3
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="text-5xl font-bold text-gray-800 dark:text-white mb-2"
+                >
+                    Hi, I'm <motion.span
+                        className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600"
+                        animate={{
+                            backgroundPosition: ["0%", "100%", "0%"],
+                        }}
+                        transition={{ duration: 3, repeat: Infinity }}
+                    >
+                        Sarim Ali
+                    </motion.span>
+                </motion.h3>
 
-                <h3 className="text-5xl font-bold text-gray-800 dark:text-white">
-                    Hi, I’m <span className="text-indigo-600">Sarim Ali</span>
-                </h3>
-                <h4 className="text-4xl font-bold mt-3 mb-3 text-indigo-600">Frontend Developer</h4>
-                <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-4">
-                    I build modern, accessible, delightfully animated interfaces and responsive user-friendly websites.I focus on fast, responsive experiences with attention to details.
-                </p>
+                <motion.h4
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    className="text-4xl font-bold mt-3 mb-3 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600"
+                >
+                    Frontend Developer
+                </motion.h4>
 
-                <div className="flex gap-3 mb-5">
-                    {/* <a href="/Sarim_CV.pdf" className="cta-button bg-indigo-600 text-white">Download CV</a>
-                    <a href="#contact" className="cta-button bg-white dark:bg-gray-800">Contact Me</a> */}
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    viewport={{ once: true }}
+                    className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6"
+                >
+                    I build modern, accessible, delightfully animated interfaces and responsive user-friendly websites. I focus on fast, responsive experiences with attention to details.
+                </motion.p>
+
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="flex flex-wrap gap-3 mb-8"
+                >
                     <motion.a
                         href="/Sarim_CV.pdf"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.8, delay: 0.6 }}
-                        className="px-6 py-3 rounded bg-blue-500 text-white font-semibold hover:bg-blue-600 transition"
+                        variants={itemVariants}
+                        whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(59, 130, 246, 0.6)" }}
+                        whileTap={{ scale: 0.95 }}
+                        className="px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold shadow-lg glow-button"
                     >
                         Download CV
                     </motion.a>
                     <motion.a
                         href="#contact"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.8, delay: 0.6 }}
-                        className="px-6 py-3 rounded bg-blue-500 text-white font-semibold hover:bg-blue-600 transition"
+                        variants={itemVariants}
+                        whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(139, 92, 246, 0.6)" }}
+                        whileTap={{ scale: 0.95 }}
+                        className="px-6 py-3 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600 text-white font-semibold shadow-lg glow-button"
                     >
                         Contact Me
                     </motion.a>
                     <motion.a
                         href="#projects"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.8, delay: 0.6 }}
-                        className="px-6 py-3 rounded bg-blue-500 text-white font-semibold hover:bg-blue-600 transition"
+                        variants={itemVariants}
+                        whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(236, 72, 153, 0.6)" }}
+                        whileTap={{ scale: 0.95 }}
+                        className="px-6 py-3 rounded-lg bg-gradient-to-r from-pink-500 to-pink-600 text-white font-semibold shadow-lg glow-button"
                     >
                         See My Projects
                     </motion.a>
-                </div>
+                </motion.div>
 
-                {/* <div className="mb-6">
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="space-y-3"
+                >
+                    <p className="text-gray-600 dark:text-gray-400 font-semibold mb-4">Key Skills:</p>
                     {skills.map((skill, index) => (
-                        <div key={index} className="mb-4">
-                            <div className="flex justify-between mb-1">
-                                <span className="text-gray-900 dark:text-white">{skill.name}</span>
-                                <span className="text-gray-700 dark:text-gray-300">{skill.level}%</span>
-                            </div>
-                            <div className="w-full bg-gray-300 dark:bg-gray-700 h-2 rounded">
-                                <div
-                                    className="bg-gradient-to-r from-indigo-500 to-pink-500 h-2 rounded"
-                                    style={{ width: `${skill.level}%` }}
-                                ></div>
-                            </div>
-                        </div>
+                        <motion.div
+                            key={index}
+                            variants={itemVariants}
+                            className="flex items-center gap-3 group"
+                        >
+                            <motion.div
+                                className="w-32 bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden"
+                                whileHover={{ scale: 1.05 }}
+                            >
+                                <motion.div
+                                    className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full"
+                                    initial={{ width: 0 }}
+                                    whileInView={{ width: `${skill.level}%` }}
+                                    transition={{ duration: 1, ease: "easeOut", delay: index * 0.1 }}
+                                    viewport={{ once: true }}
+                                />
+                            </motion.div>
+                            <span className="text-gray-700 dark:text-gray-300 font-semibold min-w-[100px] group-hover:text-blue-500 transition">
+                                {skill.name} ({skill.level}%)
+                            </span>
+                        </motion.div>
                     ))}
-                </div> */}
-                {/* 
-                <div className="flex gap-3">
-                    <span className="skill-badge">React</span>
-                    <span className="skill-badge">Tailwind</span>
-                    <span className="skill-badge">Framer Motion</span>
-                    <span className="skill-badge">TypeScript</span>
-                </div> */}
+                </motion.div>
             </motion.div>
 
             <motion.div
@@ -95,15 +167,31 @@ const About = () => {
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="md:w-1/2 flex justify-center"
+                className="md:w-1/2 flex justify-center relative z-10"
             >
-                <div className="about-img-wrap">
+                <motion.div
+                    className="relative"
+                    whileHover={{ scale: 1.05 }}
+                >
+                    {/* Glowing border effect */}
+                    <motion.div
+                        animate={{
+                            boxShadow: [
+                                "0 0 20px rgba(59, 130, 246, 0.5)",
+                                "0 0 40px rgba(139, 92, 246, 0.8)",
+                                "0 0 20px rgba(59, 130, 246, 0.5)",
+                            ],
+                        }}
+                        transition={{ duration: 3, repeat: Infinity }}
+                        className="absolute inset-0 rounded-xl"
+                    />
+
                     <img
                         src="/profile.jpg"
                         alt="Profile"
-                        className="w-[500px] h-[500px] md:w-[80px ]md:h-[80px] rounded-xl shadow-2xl border-4  object-cover"
+                        className="w-[500px] h-[500px] md:w-80 md:h-80 rounded-xl shadow-2xl border-4 border-blue-500/30 object-cover relative z-10"
                     />
-                </div>
+                </motion.div>
             </motion.div>
         </section>
     );
