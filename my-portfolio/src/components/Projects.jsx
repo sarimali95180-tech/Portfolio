@@ -1,26 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import ProjectModal from "./ProjectModal";
 
-// Example project data
+// Example project data with logos
 const projects = [
   {
     title: "Portfolio Website",
-    description: "Modern portfolio built with React and Tailwind CSS",
+    description: "Personal portfolio to showcase my work",
+    Ldescription: "A sleek and modern portfolio website showcasing my projects and skills, built using React for a dynamic user experience and Tailwind CSS for responsive and visually appealing design.",
     link: "#",
+    logo: "/public/portfolio logo.jpg",
   },
   {
     title: "E-Commerce App",
-    description: "React + Tailwind + Redux project with live cart",
+    description: "Full-featured e-commerce application",
+    Ldescription: "A comprehensive e-commerce application featuring a dynamic shopping cart, product listings, and user authentication, built using React for the frontend, Tailwind CSS for styling, and Redux for state management.",
     link: "#",
+    logo: "/public/realestate logo.png",
   },
   {
     title: "Landing Page",
-    description: "Responsive landing page with animations and smooth scroll",
+    description: "Responsive landing page with animations",
+    Ldescription: "A visually engaging and responsive landing page designed to captivate visitors, featuring smooth scrolling animations and interactive elements, built with modern web technologies.",
     link: "#",
+    logo: "/public/BuilderBlick logo.png",
+
+  },
+  {
+    title: "AI-Call-Bot",
+    description: "AI-powered call bot for automated customer interactions",
+    Ldescription: "An AI-powered call bot designed to automate customer interactions, providing efficient and natural communication through advanced speech recognition and response generation technologies.",
+    link: "#",
+    logo: "/public/AI-Call-Bot logo.png",
   },
 ];
 
 const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleViewProject = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedProject(null), 300); // Clear after animation
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -43,16 +71,10 @@ const Projects = () => {
 
   return (
     <section id="projects" className="min-h-screen bg-gray-50 dark:bg-gray-800 py-20 px-6 relative overflow-hidden">
-      {/* Background decorative elements */}
+      {/* Background decorative circle */}
       <motion.div
-        animate={{
-          rotate: 360,
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "linear",
-        }}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         className="absolute top-10 right-10 w-64 h-64 border-2 border-blue-400 rounded-full opacity-10"
       />
 
@@ -92,39 +114,57 @@ const Projects = () => {
           >
             {/* Glow effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
-            
+
             <motion.div
-              className="relative bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg h-full card-lift smooth-border"
+              className="relative bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg h-full flex flex-col items-center card-lift smooth-border"
               whileHover={{
                 boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)",
               }}
             >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-600/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"
-              />
-              
-              <div className="relative z-10">
+              {/* Logo */}
+              <div className="w-20 h-20 mb-4 flex-shrink-0">
+                <img
+                  src={project.logo}
+                  alt={`${project.title} Logo`}
+                  className="w-full h-full object-contain rounded-full shadow-md"
+                />
+              </div>
+
+              {/* Project content */}
+              <div className="text-center">
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                   {project.title}
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300 mb-4">
                   {project.description}
                 </p>
-                <motion.a
-                  href={project.link}
-                  className="inline-block text-blue-500 dark:text-blue-400 font-semibold animated-underline"
+                <motion.button
+                  onClick={() => handleViewProject(project)}
+                  className="inline-block text-blue-500 dark:text-blue-400 font-semibold animated-underline bg-none border-none cursor-pointer"
                   whileHover={{ x: 5 }}
                   whileTap={{ x: -2 }}
                 >
                   View Project →
-                </motion.a>
+                </motion.button>
               </div>
             </motion.div>
           </motion.div>
         ))}
       </motion.div>
+
+      {/* Project Modal */}
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+        />
+      )}
     </section>
   );
 };
 
 export default Projects;
+
+
+
