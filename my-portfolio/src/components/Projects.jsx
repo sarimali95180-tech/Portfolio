@@ -19,11 +19,12 @@ const projects = [
     logo: "/public/realestate logo.png",
   },
   {
-    title: "Landing Page",
-    description: "Responsive landing page with animations",
-    Ldescription: "A visually engaging and responsive landing page designed to captivate visitors, featuring smooth scrolling animations and interactive elements, built with modern web technologies.",
+    title: "Builder Brick",
+    description: "Construction project management platform",
+    Ldescription: "Builder Brick is a full-stack construction project management platform that helps organizations track materials, manpower, and finances efficiently. Built with HTML, CSS, and JavaScript for a responsive, modern UI, and powered by PHP and MySQL on the backend, it supports secure form submissions and data storage. Key features include a dynamic contact form, policy pages, and a mobile-friendly navigation system.",
     link: "#",
     logo: "/public/BuilderBlick logo.png",
+    img: "/public/builderbrick ss.png",
 
   },
   {

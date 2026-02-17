@@ -29,6 +29,27 @@ const About = () => {
         },
     };
 
+    const handleDownload = () => {
+        try {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const imgPath = "/Sarim Ali CV.png";
+
+            const img = new Image();
+            img.src = imgPath;
+            img.onload = () => {
+                const pdfWidth = doc.internal.pageSize.getWidth();
+                const pdfHeight = (img.height * pdfWidth) / img.width;
+
+                doc.addImage(img, "PNG", 0, 0, pdfWidth, pdfHeight);
+                doc.save("Sarim_Ali_CV.pdf");
+            };
+        } catch (error) {
+            console.error("jsPDF not loaded yet:", error);
+            alert("The download feature is still initializing. Please try again in a few seconds.");
+        }
+    };
+
     return (
         <section
             id="about"
@@ -99,15 +120,15 @@ const About = () => {
                     viewport={{ once: true }}
                     className="flex flex-wrap gap-3 mb-8"
                 >
-                    <motion.a
-                        href="/Sarim_CV.pdf"
+                    <motion.button
+                        onClick={handleDownload}
                         variants={itemVariants}
                         whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(59, 130, 246, 0.6)" }}
                         whileTap={{ scale: 0.95 }}
-                        className="px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold shadow-lg glow-button"
+                        className="px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold shadow-lg glow-button cursor-pointer"
                     >
                         Download CV
-                    </motion.a>
+                    </motion.button>
                     <motion.a
                         href="#contact"
                         variants={itemVariants}

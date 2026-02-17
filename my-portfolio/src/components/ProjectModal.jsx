@@ -50,7 +50,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                   className="flex items-center justify-center"
                 >
                   <img
-                    src={project.logo}
+                    src={project.img}
                     alt={project.title}
                     className="w-full h-auto max-h-96 object-contain rounded-lg shadow-lg"
                   />
