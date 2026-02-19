@@ -33,6 +33,7 @@ const projects = [
     Ldescription: "An AI-powered call bot designed to automate customer interactions, providing efficient and natural communication through advanced speech recognition and response generation technologies.",
     link: "#",
     logo: "/public/AI-Call-Bot logo.png",
+    img: "/public/ai-bot-dashboard ss1c.png",
   },
 ];
 
