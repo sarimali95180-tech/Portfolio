@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const skills = [
@@ -9,7 +9,26 @@ const skills = [
     { name: "Accessibility", level: 80 },
 ];
 
+const roles = ["Frontend Developer", "React.js Developer", "UI/UX Enthusiast"];
+
 const About = () => {
+    const [text, setText] = useState("");
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const role = roles[index % roles.length];
+        let i = 0;
+        const interval = setInterval(() => {
+            setText(role.slice(0, i + 1));
+            i++;
+            if (i === role.length) {
+                setTimeout(() => setIndex((prev) => prev + 1), 1000);
+                clearInterval(interval);
+            }
+        }, 100);
+        return () => clearInterval(interval);
+    }, [index]);
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -93,15 +112,18 @@ const About = () => {
                     </motion.span>
                 </motion.h3>
 
-                <motion.h4
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true }}
-                    className="text-4xl font-bold mt-3 mb-3 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600"
+                    className="text-4xl font-bold mt-3 mb-3 h-12"
                 >
-                    Frontend Developer
-                </motion.h4>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
+                        {text}
+                    </span>
+                    <span className="text-blue-500 blink">|</span>
+                </motion.div>
 
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
@@ -193,6 +215,14 @@ const About = () => {
                 <motion.div
                     className="relative"
                     whileHover={{ scale: 1.05 }}
+                    animate={{
+                        y: [0, -20, 0],
+                    }}
+                    transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    }}
                 >
                     {/* Glowing border effect */}
                     <motion.div
@@ -204,13 +234,13 @@ const About = () => {
                             ],
                         }}
                         transition={{ duration: 3, repeat: Infinity }}
-                        className="absolute inset-0 rounded-xl"
+                        className="absolute inset-0 rounded-full"
                     />
 
                     <img
                         src="/profile.jpg"
                         alt="Profile"
-                        className="w-[500px] h-[500px] md:w-80 md:h-80 rounded-xl shadow-2xl border-4 border-blue-500/30 object-cover relative z-10"
+                        className="w-72 h-72 md:w-96 md:h-96 rounded-full shadow-2xl border-4 border-blue-500/30 object-cover relative z-10"
                     />
                 </motion.div>
             </motion.div>

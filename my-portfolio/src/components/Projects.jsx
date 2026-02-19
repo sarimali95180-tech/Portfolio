@@ -10,6 +10,7 @@ const projects = [
     Ldescription: "A sleek and modern portfolio website showcasing my projects and skills, built using React for a dynamic user experience and Tailwind CSS for responsive and visually appealing design.",
     link: "#",
     logo: "/public/portfolio logo.jpg",
+    img: "/public/portfolio logo.jpg",
   },
   {
     title: "E-Commerce App",
@@ -17,6 +18,7 @@ const projects = [
     Ldescription: "A comprehensive e-commerce application featuring a dynamic shopping cart, product listings, and user authentication, built using React for the frontend, Tailwind CSS for styling, and Redux for state management.",
     link: "#",
     logo: "/public/realestate logo.png",
+    img: "/public/realestate logo.png",
   },
   {
     title: "Builder Brick",

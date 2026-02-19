@@ -52,6 +52,43 @@ const Hero = () => {
         className="absolute bottom-20 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
       />
 
+      <motion.div
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="relative mb-8 mt-20"
+      >
+        <motion.div
+          animate={{
+            y: [0, -15, 0],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="relative group"
+        >
+          {/* Glowing ring */}
+          <motion.div
+            animate={{
+              boxShadow: [
+                "0 0 20px rgba(59, 130, 246, 0.4)",
+                "0 0 60px rgba(139, 92, 246, 0.6)",
+                "0 0 20px rgba(59, 130, 246, 0.4)",
+              ],
+            }}
+            transition={{ duration: 4, repeat: Infinity }}
+            className="absolute inset-0 rounded-full"
+          />
+          <img
+            src="/profile.jpg"
+            alt="Sarim Ali"
+            className="w-40 h-40 md:w-56 md:h-56 rounded-full border-4 border-white dark:border-gray-800 shadow-2xl object-cover relative z-10"
+          />
+        </motion.div>
+      </motion.div>
+
       <motion.h1
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
