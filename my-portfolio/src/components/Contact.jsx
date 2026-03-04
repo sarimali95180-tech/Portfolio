@@ -10,16 +10,61 @@ const Contact = () => {
     message: "",
   });
 
+  const [status, setStatus] = useState({
+    type: "", // 'success', 'error', or ''
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thanks for reaching out! I'll get back to you soon.");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setIsSubmitting(true);
+    setStatus({ type: "", message: "" });
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE",
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: "sarimali95180@gmail.com",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus({
+          type: "success",
+          message: "Thank you! Your message has been sent successfully."
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus({
+          type: "error",
+          message: "Something went wrong. Please try again later."
+        });
+      }
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message: "Failed to connect. Please check your internet connection."
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -245,19 +290,44 @@ const Contact = () => {
 
             <motion.button
               type="submit"
+              disabled={isSubmitting}
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              whileHover={{
+              whileHover={!isSubmitting ? {
                 scale: 1.05,
                 boxShadow: "0 0 30px rgba(59, 130, 246, 0.6)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-lg glow-button"
+              } : {}}
+              whileTap={!isSubmitting ? { scale: 0.95 } : {}}
+              className={`w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-lg glow-button flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
-              Send Message
+              {isSubmitting ? (
+                <>
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
+                  />
+                  Sending...
+                </>
+              ) : (
+                "Send Message"
+              )}
             </motion.button>
+
+            {status.message && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`mt-4 p-4 rounded-lg text-center ${status.type === "success"
+                  ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 border border-green-200 dark:border-green-800"
+                  : "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 border border-red-200 dark:border-red-800"
+                  }`}
+              >
+                {status.message}
+              </motion.div>
+            )}
           </form>
         </div>
       </motion.div>

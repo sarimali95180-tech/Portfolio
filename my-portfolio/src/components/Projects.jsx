@@ -12,14 +12,14 @@ const projects = [
     logo: "/public/portfolio logo.jpg",
     img: "/public/portfolio logo.jpg",
   },
-  {
-    title: "E-Commerce App",
-    description: "Full-featured e-commerce application",
-    Ldescription: "A comprehensive e-commerce application featuring a dynamic shopping cart, product listings, and user authentication, built using React for the frontend, Tailwind CSS for styling, and Redux for state management.",
-    link: "#",
-    logo: "/public/realestate logo.png",
-    img: "/public/realestate logo.png",
-  },
+  // {
+  //   title: "E-Commerce App",
+  //   description: "Full-featured e-commerce application",
+  //   Ldescription: "A comprehensive e-commerce application featuring a dynamic shopping cart, product listings, and user authentication, built using React for the frontend, Tailwind CSS for styling, and Redux for state management.",
+  //   link: "#",
+  //   logo: "/public/realestate logo.png",
+  //   img: "/public/realestate logo.png",
+  // },
   {
     title: "Builder Brick",
     description: "Construction project management platform",
@@ -36,6 +36,14 @@ const projects = [
     link: "#",
     logo: "/public/AI-Call-Bot logo.png",
     img: "/public/ai-bot-dashboard ss1c.png",
+  },
+  {
+    title: "Real Estate App",
+    description: "Real Estate Web Application with secure authentication and role-based access",
+    Ldescription: "A dynamic Real Estate Web Application with secure authentication and role-based access.Built full CRUD functionality for Users and Property Management with database integration.Implemented advanced search, CKEditor for rich property descriptions, and responsive property cards.Includes session handling, validation, toast notifications, and protected routes.",
+    link: "#",
+    logo: "/public/realestate logo.png",
+    img: "/public/realestate logo.png",
   },
 ];
 

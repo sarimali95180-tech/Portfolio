@@ -7,14 +7,14 @@ export const projects = [
     github: "https://github.com/sarimg/portfolio",
     tech: ["React", "Tailwind", "Framer Motion"],
   },
-  {
-    title: "E-Commerce App",
-    description: "Full-featured storefront with product filtering, cart persistence and stripe-powered checkout demo (sandbox).",
-    image: "/assets/ecom-screenshot.png",
-    demo: "https://ecom-demo.example",
-    github: "https://github.com/sarimg/ecom-app",
-    tech: ["React", "Context API", "Tailwind", "Stripe"],
-  },
+  // {
+  //   title: "E-Commerce App",
+  //   description: "Full-featured storefront with product filtering, cart persistence and stripe-powered checkout demo (sandbox).",
+  //   image: "/assets/ecom-screenshot.png",
+  //   demo: "https://ecom-demo.example",
+  //   github: "https://github.com/sarimg/ecom-app",
+  //   tech: ["React", "Context API", "Tailwind", "Stripe"],
+  // },
   {
     title: "Landing Page",
     description: "Pixel-perfect marketing landing with animated hero, responsive layout and lead capture form integration.",

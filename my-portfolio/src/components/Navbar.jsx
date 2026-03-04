@@ -75,19 +75,17 @@ const Navbar = () => {
             <motion.a
               key={link.name}
               href={link.href}
-              className={`relative text-lg font-medium cursor-pointer transition-all ${
-                active === link.name
+              className={`relative text-lg font-medium cursor-pointer transition-all ${active === link.name
                   ? "text-blue-600 dark:text-blue-400"
                   : "text-gray-700 dark:text-gray-300"
-              }`}
+                }`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
               {link.name}
               <motion.span
-                className={`absolute -bottom-1 left-0 h-1 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 ${
-                  active === link.name ? "w-full" : "w-0"
-                }`}
+                className={`absolute -bottom-1 left-0 h-1 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 ${active === link.name ? "w-full" : "w-0"
+                  }`}
                 animate={{
                   width: active === link.name ? "100%" : "0%",
                 }}
@@ -161,11 +159,10 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className={`mb-4 text-lg font-medium cursor-pointer transition-all ${
-                  active === link.name
+                className={`mb-4 text-lg font-medium cursor-pointer transition-all ${active === link.name
                     ? "text-blue-600 dark:text-blue-400"
                     : "text-gray-700 dark:text-gray-300"
-                }`}
+                  }`}
                 whileHover={{ scale: 1.05, x: 10 }}
                 whileTap={{ scale: 0.95 }}
               >

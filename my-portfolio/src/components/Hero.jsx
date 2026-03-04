@@ -95,7 +95,7 @@ const Hero = () => {
         transition={{ duration: 0.8 }}
         className="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-4 relative z-10"
       >
-        Hi, I'm{" "}
+        {" "}
         <motion.span
           className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600"
           animate={{
@@ -103,7 +103,7 @@ const Hero = () => {
           }}
           transition={{ duration: 3, repeat: Infinity }}
         >
-          Sarim Ali
+
         </motion.span>
       </motion.h1>
 
