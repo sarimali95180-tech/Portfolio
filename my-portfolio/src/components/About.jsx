@@ -160,7 +160,7 @@ const About = () => {
                     >
                         Contact Me
                     </motion.a>
-                    <motion.a
+                    {/* <motion.a
                         href="#projects"
                         variants={itemVariants}
                         whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(236, 72, 153, 0.6)" }}
@@ -168,7 +168,7 @@ const About = () => {
                         className="px-6 py-3 rounded-lg bg-gradient-to-r from-pink-500 to-pink-600 text-white font-semibold shadow-lg glow-button"
                     >
                         See My Projects
-                    </motion.a>
+                    </motion.a> */}
                 </motion.div>
 
                 <motion.div
