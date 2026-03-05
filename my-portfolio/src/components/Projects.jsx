@@ -9,8 +9,8 @@ const projects = [
     description: "Personal portfolio to showcase my work",
     Ldescription: "A sleek and modern portfolio website showcasing my projects and skills, built using React for a dynamic user experience and Tailwind CSS for responsive and visually appealing design.",
     link: "https://github.com/sarimali95180-tech/Portfolio",
-    logo: "/public/portfolio logo.jpg",
-    img: "/public/portfolio logo.jpg",
+    logo: "/portfolio-logo.jpg",
+    img: "/portfolio-logo.jpg",
   },
   // {
   //   title: "E-Commerce App",
@@ -25,8 +25,8 @@ const projects = [
     description: "Construction project management platform",
     Ldescription: "Builder Brick is a full-stack construction project management platform that helps organizations track materials, manpower, and finances efficiently. Built with HTML, CSS, and JavaScript for a responsive, modern UI, and powered by PHP and MySQL on the backend, it supports secure form submissions and data storage. Key features include a dynamic contact form, policy pages, and a mobile-friendly navigation system.",
     link: "https://github.com/sarimali95180-tech/builder-brick",
-    logo: "/public/BuilderBlick logo.png",
-    img: "/public/builderbrick ss.png",
+    logo: "/BuilderBlick-logo.png",
+    img: "/builderbrick-ss.png",
 
   },
   {
@@ -34,16 +34,16 @@ const projects = [
     description: "AI-powered call bot for automated customer interactions",
     Ldescription: "An AI-powered call bot designed to automate customer interactions, providing efficient and natural communication through advanced speech recognition and response generation technologies.",
     link: "https://github.com/sarimali95180-tech/ai-call-bot-temp",
-    logo: "/public/AI-Call-Bot logo.png",
-    img: "/public/ai-bot-dashboard ss1c.png",
+    logo: "/AI-Call-Bot-logo.png",
+    img: "/ai-bot-dashboard-ss1c.png",
   },
   {
     title: "Real Estate App",
     description: "Real Estate Web Application with secure authentication and role-based access",
     Ldescription: "A dynamic Real Estate Web Application with secure authentication and role-based access.Built full CRUD functionality for Users and Property Management with database integration.Implemented advanced search, CKEditor for rich property descriptions, and responsive property cards.Includes session handling, validation, toast notifications, and protected routes.",
     link: "https://github.com/sarimali95180-tech/real-estate-dasboard",
-    logo: "/public/realestate logo.png",
-    img: "/public/realestate logo.png",
+    logo: "/realestate-logo.png",
+    img: "/realestate-logo.png",
   },
 ];
 

@@ -52,7 +52,7 @@ const About = () => {
         try {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
-            const imgPath = "/Sarim Ali CV.png";
+            const imgPath = "/SarimAli-CV.png";
 
             const img = new Image();
             img.src = imgPath;
