@@ -24,7 +24,7 @@ const projects = [
     title: "Builder Brick",
     description: "Construction project management platform",
     Ldescription: "Builder Brick is a full-stack construction project management platform that helps organizations track materials, manpower, and finances efficiently. Built with HTML, CSS, and JavaScript for a responsive, modern UI, and powered by PHP and MySQL on the backend, it supports secure form submissions and data storage. Key features include a dynamic contact form, policy pages, and a mobile-friendly navigation system.",
-    link: "https://github.com/sarimali95180-tech/builder-brick",
+    // link: "https://github.com/sarimali95180-tech/builder-brick",
     logo: "/BuilderBlick-logo.png",
     img: "/builderbrick-ss.png",
 
@@ -33,7 +33,7 @@ const projects = [
     title: "AI-Call-Bot",
     description: "AI-powered call bot for automated customer interactions",
     Ldescription: "An AI-powered call bot designed to automate customer interactions, providing efficient and natural communication through advanced speech recognition and response generation technologies.",
-    link: "https://github.com/sarimali95180-tech/ai-call-bot-temp",
+    // link: "https://github.com/sarimali95180-tech/ai-call-bot-temp",
     logo: "/AI-Call-Bot-logo.png",
     img: "/ai-bot-dashboard-ss1c.png",
   },
